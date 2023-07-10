@@ -38,12 +38,15 @@ class LDDTools():
         CreateSavePath(output_dir)
         ln_file_dic = self.ldd()
         for key in ln_file_dic.keys():
-            shutil.copy(ln_file_dic[key],os.path.join(output_dir,GetLastDir(ln_file_dic[key])))
-            if GetLastDir(ln_file_dic[key]) == key:
-                pass
+            if "/usr/local/cuda/lib64/" in ln_file_dic[key]:
+                print("cuda ln file:{},无需拷贝".format(ln_file_dic[key]))
             else:
-                os.system("ln -s {} {}".format(ln_file_dic[key],os.path.join(output_dir,key)))
-            print(ln_file_dic[key], key)
+                shutil.copy(ln_file_dic[key],os.path.join(output_dir,GetLastDir(ln_file_dic[key])))
+                if GetLastDir(ln_file_dic[key]) == key:
+                    pass
+                else:
+                    os.system("ln -s {} {}".format(ln_file_dic[key],os.path.join(output_dir,key)))
+                print(ln_file_dic[key], key)
 
 
 if __name__ == '__main__':
