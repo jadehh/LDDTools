@@ -44,10 +44,9 @@ class LDDTools():
                 if os.path.exists(ln_file_dic[key]):
                     shutil.copy(ln_file_dic[key],os.path.join(output_dir,GetLastDir(ln_file_dic[key])))
                     if GetLastDir(ln_file_dic[key]) == key:
-                        print("{}与{}一样,pass".format(ln_file_dic[key],key))
                         pass
                     else:
-                        os.system("ln -s {} {}".format(ln_file_dic[key],os.path.join(output_dir,key)))
+                        os.system("ln -s {} {}".format(os.path.join(output_dir,GetLastDir(ln_file_dic[key])),os.path.join(output_dir,key)))
                 else:
                     print("{}文件不存在".format(ln_file_dic[key]))
                 print(ln_file_dic[key], key)
