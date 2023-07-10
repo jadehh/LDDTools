@@ -41,11 +41,14 @@ class LDDTools():
             if "/usr/local/cuda/lib64/" in ln_file_dic[key]:
                 print("cuda ln file:{},无需拷贝".format(ln_file_dic[key]))
             else:
-                shutil.copy(ln_file_dic[key],os.path.join(output_dir,GetLastDir(ln_file_dic[key])))
-                if GetLastDir(ln_file_dic[key]) == key:
-                    pass
+                if os.path.exists(ln_file_dic[key]):
+                    shutil.copy(ln_file_dic[key],os.path.join(output_dir,GetLastDir(ln_file_dic[key])))
+                    if GetLastDir(ln_file_dic[key]) == key:
+                        pass
+                    else:
+                        os.system("ln -s {} {}".format(ln_file_dic[key],os.path.join(output_dir,key)))
                 else:
-                    os.system("ln -s {} {}".format(ln_file_dic[key],os.path.join(output_dir,key)))
+                    print("{}文件不存在".format(ln_file_dic[key]))
                 print(ln_file_dic[key], key)
 
 
