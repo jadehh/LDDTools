@@ -1,13 +1,18 @@
 ### 更新日志
 
+#### v0.0.0.9 - 2023-07-14
+* 修改App名称为ubuntu20.04
+---
+
+
+
+<details onclose>
+<summary>查看更多更新日志</summary>
 
 #### v0.0.0.8 - 2023-07-14
 * 使用Python3.6进行打包
 * 使用Python3.10进行打包
 ---
-
-<details onclose>
-<summary>查看更多更新日志</summary>
 
 #### v0.0.0.7 - 2023-07-14
 * 使用Python3.6进行打包
