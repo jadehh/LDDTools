@@ -86,10 +86,6 @@ jobs:
           ref: main
           path: code
           token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
-      - name: 使用Python环境
-        uses: actions/setup-python@v3
-        with:
-          python-version: 3.8
       - name: 准备打包环境
         run: |
           pip install -r code/requirements.txt
