@@ -71,6 +71,9 @@ jobs:
   Ubuntu_22:
     name: 打包发布-操作系统版本:(${{ matrix.os }})
     runs-on: ${{ matrix.os }}
+    container:
+      image: jadehh/python:3.8.10-ubuntu20.04
+      options: --privileged
     strategy:
       fail-fast: false
       matrix:
