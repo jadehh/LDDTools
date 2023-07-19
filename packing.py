@@ -34,6 +34,7 @@ if __name__ == '__main__':
                         default="False")  ## 是否打包成AppImage
     parser.add_argument('--lib_path', type=str, default="")  ## 是否lib包分开打包
     parser.add_argument('--is_qt', type=str, default="False")  ## qt 会将controller view src 都进行编译
+    parser.add_argument("----exclude_files",type=str,default="")
     parser.add_argument('--specify_files', type=str, default="")  ## 指定编译的文件
     parser.add_argument("--zip_lib",type=str,default='False')
     parser.add_argument('--main', type=str, default="from src.samplesMain import main\n"
